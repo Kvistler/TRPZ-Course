@@ -1,0 +1,68 @@
+﻿@model IEnumerable<RealtorFirm.PL.Models.ClientModel>
+@{
+    ViewBag.Title = "AddExistClient";
+}
+<br><br>
+<div class="window">
+
+    <h2>Clients without realtor</h2>
+
+    <table border="1" cellspacing="0" cellpadding="2" width="350" style="text-align:left">
+        @{
+            if (Model.Count() != 0)
+            {
+                <tr>
+                    <td><div class="p1"> Name</div></td>
+                    <td><div class="p1"> Surname</div></td>
+                    <td><div class="p1"> Patronimic</div></td>
+                    <td><div class="p1"> Date of birth</div></td>
+                    <td><div class="p1"> Phone number</div></td>
+
+                    <td></td>
+                </tr>
+            }
+        }
+        @{
+            foreach (var n in Model)
+            {
+                if (n.UserId == 0)
+                {
+                <tr>
+                    <td><div class="p1"> @n.Name</div></td>
+                    <td><div class="p1"> @n.Surname</div></td>
+                    <td><div class="p1"> @n.Patronimic</div></td>
+                    <td><div class="p1"> @n.DateOfBirth.ToShortDateString()</div></td>
+                    <td><div class="p1"> @n.PhoneNumber</div></td>
+
+                    <td>
+                        <form action="/Client/AddExistClient" method="post">
+                            <input type="hidden" value="@n.ClientId" name="ClientId">
+                            <input type="hidden" value="@n.Name" name="Name">
+                            <input type="hidden" value="@n.Surname" name="Surname">
+                            <input type="hidden" value="@n.Patronimic" name="Patronimic">
+                            <input type="hidden" value="@n.DateOfBirth" name="DateOfBirth">
+                            <input type="hidden" value="@n.PhoneNumber" name="PhoneNumber">
+                            <input type="hidden" value="@n.Account" name="Account">
+                            <input type="hidden" value="@n.Email" name="Email">
+                            <input type="hidden" value="@n.UserId" name="UserId">
+                            <input value="Add" type="submit" style="width:100%;">
+                        </form>
+                    </td>
+                  
+                </tr>
+                    }
+                }
+            }
+
+    </table>
+    @{
+        if (Model.Count() == 0)
+        {
+            <div class="p1" style="padding-bottom:15px; padding-top:15px;">There are no free clients</div>
+        }
+    }
+    <form action="/User/Page" method="get">
+        <input type="hidden" value="@ViewBag.Id" name="Id">
+        <input value="Back" type="submit" style="width:20%">
+    </form>
+</div>

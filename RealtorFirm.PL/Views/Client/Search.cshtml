@@ -1,0 +1,103 @@
+﻿@model RealtorFirm.PL.Models.ClientsAndAppartmentsModel
+@{
+    ViewBag.Title = "Search";
+}
+
+<div class="window">
+    <h2>Search</h2>
+    <form action="/Client/Search" method="get" style="padding-bottom:30px;">
+        <div class="p1">Keyword:</div>
+        <input name="Keyword" type="text"><br>
+        <div>
+            <input value="Search" type="submit" style="width:20%">
+        </div>
+        <input type="hidden" name="Sort" value="search">
+    </form>
+    <hr>
+    <h2>Category search</h2>
+    <form action="/Client/Search" method="get" style="padding-bottom:30px;">
+        <div class="p1">Clients:</div>
+        <input name="Keyword" type="text"><br><br>
+        <div class="p1">Appartments:</div>
+        <input name="Keyword1" type="text"><br>
+        <div>
+            <input value="Search" type="submit" style="width:20%">
+        </div>
+        <input type="hidden" name="Sort" value="deep_search">
+    </form>
+    <hr>
+    <h2>Clients</h2>
+    <table border="1" cellspacing="0" cellpadding="2" width="350" style="text-align:left;">
+        @{
+                <tr>
+                    <td><div class="p1"> Name</div></td>
+                    <td><div class="p1"> Surname</div></td>
+                    <td><div class="p1"> Patronimic</div></td>
+                    <td><div class="p1"> Date of birth</div></td>
+                    <td><div class="p1"> Account</div></td>
+                    <td></td>
+                </tr>
+            }
+        
+        @{
+            foreach (var n in Model.ClientsModel)
+            {
+                
+                    <tr>
+                        <td><div class="p1"> @n.Name</div></td>
+                        <td><div class="p1"> @n.Surname</div></td>
+                        <td><div class="p1"> @n.Patronimic</div></td>
+                        <td><div class="p1"> @n.DateOfBirth.ToShortDateString()</div></td>
+                        <td><div class="p1"> @n.Account</div></td>
+                        <td>
+                            <form action="/Client/Details" method="post">
+                                <input type="hidden" value="@n.ClientId" name="Id" style="width:100%">
+                                <input value="Details" type="submit" style="width:100%">
+                            </form>
+                        </td>
+
+                    </tr>
+                
+            }
+        }
+
+    </table>
+    <hr>
+    <h2>Appartments</h2>
+    <table border="1" cellspacing="0" cellpadding="2" width="350" style="text-align:left;">
+        @{
+            if (Model.AppartmentsModel.Count() != 0)
+            {
+                <tr>
+                    <td><div class="p1"> Address</div></td>
+                    <td><div class="p1"> City</div></td>
+                    <td><div class="p1"> Rooms</div></td>
+                    <td><div class="p1"> Price</div></td>
+                    <td></td>
+                </tr>
+            }
+        }
+        @{
+            foreach (var n in Model.AppartmentsModel)
+            {
+                
+                    <tr>
+                        <td><div class="p1"> @n.Address</div></td>
+                        <td><div class="p1"> @n.City</div></td>
+                        <td><div class="p1"> @n.Rooms</div></td>
+                        <td><div class="p1"> @n.Price</div></td>
+                        <td>
+                            <form action="/Appartment/Details" method="get">
+                                <input type="hidden" value="@n.AppartmentId" name="Id">
+                                <input value="Details" type="submit" style="width:100%;">
+                            </form>
+                        </td>
+
+                    </tr>
+                
+            }
+        }
+
+    </table>
+   
+</div>

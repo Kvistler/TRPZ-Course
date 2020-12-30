@@ -1,0 +1,133 @@
+﻿@model IEnumerable<RealtorFirm.PL.Models.ClientModel>
+@{
+    ViewBag.Title = "All";
+}
+<div class="window">
+    <h2>Sort</h2>
+   
+    <table>
+        <tr>
+            <td style="width:30%">
+            <form action="/Client/All" method="get" >
+                <input value="By name" type="submit" style="width:70%;padding-right:20px">
+                <input type="hidden" value="name" name="Sort">
+            </form>
+            </td>
+            <td style="width:30%">
+            <form action="/Client/All" method="get">
+                <input value="By surname" type="submit" style="width:70%;padding-right:20px">
+                <input type="hidden" value="surname" name="Sort">
+            </form>
+                </td>
+        </tr>
+        <tr>
+            <td style="width:30%">
+                <form action="/Client/All" method="get">
+                    <input value="By account" type="submit" style="width:70%;padding-right:20px">
+                    <input type="hidden" value="first_number" name="Sort">
+                </form>
+            </td>
+            <td style="width:30%">
+                <form action="/Client/All" method="get">
+                    <input value="No sort" type="submit" style="width:70%;padding-right:20px">
+                    <input type="hidden" value="without" name="Sort">
+                </form>
+            </td>
+        </tr>
+        </table><br>
+    <hr>
+    <h2>Search</h2><br>
+    <form action="/Client/All" method="get">
+        <div class="p1">Keyword:</div>
+        <input name="Keyword" type="text">
+        <div>
+            <input value="Search" type="submit" style="width:20%">
+        </div>
+        <input type="hidden" value="keyword" name="Sort">
+    </form>
+    <hr>
+    <h2>Landlords</h2>
+    <table border="1" cellspacing="0" cellpadding="2" width="350" style="text-align:left">
+        @{
+            if (Model.Count() != 0)
+            {
+                <tr>
+                    <td><div class="p1">Name</div></td>
+                    <td><div class="p1">Surname</div></td>
+                    <td><div class="p1">Patronimic</div></td>
+                    <td><div class="p1">Date of birth</div></td>
+                    <td><div class="p1">Account</div></td>
+                    <td></td>
+                </tr>
+            }
+        }
+        @{
+            foreach (var n in Model)
+            {
+                if (n.Role == "landlord")
+                {
+                    <tr>
+                        <td><div class="p1">@n.Name</div></td>
+                        <td><div class="p1">@n.Surname</div></td>
+                        <td><div class="p1">@n.Patronimic</div></td>
+                        <td><div class="p1">@n.DateOfBirth.ToShortDateString()</div></td>
+                        <td><div class="p1">@n.Account</div></td>
+                        <td>
+                            <form action="/Client/Details" method="post">
+                                <input type="hidden" value="@n.ClientId" name="Id">
+                                <input value="Details" type="submit" style="width:100%;">
+                            </form>
+                        </td>
+
+                    </tr>
+                }
+            }
+        }
+
+    </table>
+    <hr>
+    <h2>Renters</h2>
+
+    <table border="1" cellspacing="0" cellpadding="2" width="350" style="text-align:left">
+        @{
+            if (Model.Count() != 0)
+            {
+                <tr>
+                    <td><div class="p1">Name</div></td>
+                    <td><div class="p1">Surname</div></td>
+                    <td><div class="p1">Patronimic</div></td>
+                    <td><div class="p1">Date of birth</div></td>
+                    <td><div class="p1">Account</div></td>
+                    <td></td>
+                </tr>
+            }
+        }
+        @{
+            foreach (var n in Model)
+            {
+                if (n.Role == "renter")
+                {
+                    <tr>
+                        <td><div class="p1">@n.Name</div></td>
+                        <td><div class="p1">@n.Surname</div></td>
+                        <td><div class="p1">@n.Patronimic</div></td>
+                        <td><div class="p1">@n.DateOfBirth.ToShortDateString()</div></td>
+                        <td><div class="p1">@n.Account</div></td>
+                        <td>
+                            <form action="/Client/Details" method="post">
+                                <input type="hidden" value="@n.ClientId" name="Id">
+                                <input value="Details" type="submit" style="width:100%;">
+                            </form>
+                        </td>
+                    </tr>
+                }
+            }
+        }
+    </table>
+    @{
+        if (Model.Count() == 0)
+        {
+            <div class="p1" style="padding-bottom:15px;padding-top:20px">There are no clients</div>
+        }
+    }
+</div>

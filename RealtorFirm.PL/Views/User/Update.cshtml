@@ -1,0 +1,70 @@
+﻿@model RealtorFirm.PL.Models.UserModel
+@{
+    ViewBag.Title = "Update";
+}
+<div class="window">
+
+    <form action="/User/Update" method="post" style="text-align:center">
+        <div style="padding-top:20px">
+            <div class="p1">Name</div>
+        </div>
+        <div>
+            <input type="text" name="Name" value="@ViewBag.User.Name">
+        </div>
+
+        <div style="padding-top:20px">
+            <div class="p1">Surname</div>
+        </div>
+        <div>
+            <input type="text" name="Surname" value="@ViewBag.User.Surname">
+        </div>
+
+        <div style="padding-top:20px">
+            <div class="p1">Login</div>
+        </div>
+        <div>
+            <input type="text" name="Login" value="@ViewBag.User.Login">
+        </div>
+
+        <div style="padding-top:20px">
+            <div class="p1">Password</div>
+        </div>
+        <div>
+            <input type="text" name="Password" value="@ViewBag.User.Password">
+        </div>
+
+        <div style="padding-top:20px">
+            <div class="p1">Account</div>
+        </div>
+        <div>
+            <input type="text" name="Account" value="@ViewBag.User.Account">
+        </div>
+
+        <div style="padding-top:20px">
+            <div class="p1">Phone number</div>
+        </div>
+        <div>
+            <input type="text" name="PhoneNumber" value="@ViewBag.User.PhoneNumber">
+        </div>
+
+        <div style="padding-top:20px">
+            <div class="p1">Email</div>
+        </div>
+        <div>
+            <input type="text" name="Email" value="@ViewBag.User.Email">
+        </div>
+
+        <br>
+        <input type="hidden" value="@ViewBag.User.UserId" name="UserId">
+        <input type="hidden" value="@ViewBag.User.UserId" name="Id">
+           
+        <div style="padding-bottom:20px;">
+            <input value="Update" type="submit" style="width:20%">
+        </div>
+    </form>
+
+    <form action="/User/Page" method="get" style="text-align:center;">
+        <input value="Back" type="submit" style="width:20%">
+    </form>
+
+</div>

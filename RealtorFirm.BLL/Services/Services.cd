@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="RealtorFirm.BLL.Services.AppartmentService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYIAAAAAGAAAABAAAAAAAAAAAEIAAAAAgBAAAAAgBA=</HashCode>
+      <FileName>Services\AppartmentService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="RealtorFirm.BLL.Services.ApplyService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAOAEgABAAAAAAAAAIAEAAAAAEQgAAABgAIA=</HashCode>
+      <FileName>Services\ApplyService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="RealtorFirm.BLL.Services.ClientService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAGAAAABEAAAAAAAAAAEAAAAAEgAAAAAAAAA=</HashCode>
+      <FileName>Services\ClientService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="RealtorFirm.BLL.Services.UserService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAGAAAABAAAAAAgAAAAEAAAAAAgAIAAAAAAA=</HashCode>
+      <FileName>Services\UserService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="RealtorFirm.BLL.Interfaces.IUserService">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAACAAAABAAAAAAAAAAAEAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IUserService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="RealtorFirm.BLL.Interfaces.IClientService">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAACAAAABEAAAAAAAAAAEAAAAAEgAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IClientService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="RealtorFirm.BLL.Interfaces.IApplyService">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAKAEgABAAAAAAAAAIAEAAAAAEQgAAABgAIA=</HashCode>
+      <FileName>Interfaces\IApplyService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="RealtorFirm.BLL.Interfaces.IAppartmentService">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYIAAAAACAAAABAAAAAAAAAAAEIAAAAAgBAAAAAgBA=</HashCode>
+      <FileName>Interfaces\IAppartmentService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

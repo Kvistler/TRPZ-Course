@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="RealtorFirm.DAL.Entities.User">
+    <Position X="6" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAQAwABAAAAAACAAAQAAAAAEA=</HashCode>
+      <FileName>Entities\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealtorFirm.DAL.Entities.Client">
+    <Position X="4.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAICAAAAAAkAAAQAwABAAQAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Entities\Client.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealtorFirm.DAL.Entities.Apply">
+    <Position X="2.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAMAQAgAAAIAAAAAAgCCAABAACCEAAAAQAAAAA=</HashCode>
+      <FileName>Entities\Apply.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealtorFirm.DAL.Entities.Appartment">
+    <Position X="0.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAQAgAAAIgAAAAAACCAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Appartment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

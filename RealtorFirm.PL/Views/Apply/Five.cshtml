@@ -1,0 +1,51 @@
+﻿@model IEnumerable<RealtorFirm.PL.Models.ApplyModel>
+@{
+    ViewBag.Title = "Five";
+}
+<br><br>
+<div class="window">
+
+    <h2>Your applies</h2>
+    <div class="p1">You can add only five applies for one client! So delete one of exist.</div><br>
+    <table style="padding-bottom:20px;">
+
+
+        <tr>
+            <td><div class="p1"> Address</div></td>
+            <td><div class="p1" style="padding-right:30px;"> City</div></td>
+            <td><div class="p1" style="padding-right:30px;"> Rooms</div></td>
+            <td><div class="p1" style="padding-right:50px;"> Price</div></td>
+            <td><div class="p1" style="padding-right:30px;"> Status</div></td>
+
+            <td></td>
+        </tr>
+
+
+        @{
+            foreach (var n in Model)
+            {
+                <tr>
+                    <td><div class="p1"> @n.Address</div></td>
+                    <td><div class="p1" style="padding-right:30px;"> @n.City</div></td>
+                    <td><div class="p1" style="padding-right:30px;"> @n.Rooms</div></td>
+                    <td><div class="p1" style="padding-right:50px;"> @n.Price</div></td>
+                    <td><div class="p1" style="padding-right:30px;"> @n.ApplyStatus</div></td>
+
+                    <td>
+                        <form action="/Apply/Deleted" method="post" style="padding-right:30px;">
+                            <input type="hidden" value="@n.ApplyId" name="id">
+                            <input type="hidden" value="@ViewBag.AppId" name="App">
+                            <input value="Delete" type="submit" style="width:100%;padding-right:15px;">
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+
+    </table>
+
+    <form action="/Apply/Submit" method="get" style="padding-left:10px;padding-bottom:20px;">
+        <input type="hidden" value="@ViewBag.AppId" name="App">
+            <input value="Back" type="submit" style="width:20%">
+        </form>
+</div>

@@ -1,0 +1,82 @@
+﻿@model RealtorFirm.PL.Models.UserModel
+@{
+    ViewBag.Title = "Registration";
+}
+<div class="window">
+    @using (Html.BeginForm("Registration", "User", FormMethod.Post))
+    {
+        <form method="post">
+            <div style="padding-top:20px">
+                <div class="p1">
+                    Name
+                </div>
+            </div>
+            <div>
+                <input type="text" name="Name" pattern="^[a-zA-Z]+$" title="Only letters" required>
+            </div>
+            <div style="padding-top:20px">
+                <div class="p1">
+                    Surname
+                </div>
+            </div>
+            <div>
+                <input type="text" name="Surname" pattern="^[a-zA-Z]+$" title="Only letters" required>
+            </div>
+            <div style="padding-top:20px">
+                <div class="p1">
+                    Login
+                </div>
+            </div>
+            <div>
+                <input type="text" name="Login" required>
+            </div>
+
+            <div style="padding-top:20px">
+                <div class="p1">
+                    Account
+                </div>
+            </div>
+            <div>
+                <input type="text" name="Account" pattern="[0-9]{16}" title="16 numbers" required>
+            </div>
+
+            <div style="padding-top:20px">
+                <div class="p1">
+                    Phone number
+                </div>
+            </div>
+            <div> 
+                <input type="text" name="PhoneNumber" pattern="[3][8][0][0-9]{9}" title="Format 380*********" required>
+            </div>
+
+            <div style="padding-top:20px">
+                <div class="p1">
+                    Email
+                </div>
+            </div>
+            <div>
+                <input type="email" name="Email" required>
+            </div>
+
+            <div style="padding-top:20px">
+                <div class="p1">
+                    Password
+                </div>
+            </div>
+            <div>
+                <input type="password" name="Password" pattern=".{5,}" title="At list five symbols" required>
+            </div>
+            <div style="padding-top:20px">
+                <div class="p1">
+                    Confirm password
+                </div>
+            </div>
+            <div>
+                <input type="password" name="Confirm" pattern=".{5,}" title="Passwords must match" required>
+            </div>
+            <br>
+            
+            <div style="padding-bottom:20px;"><input value="Sign up" type="submit"></div>
+        </form>
+    }
+</div>

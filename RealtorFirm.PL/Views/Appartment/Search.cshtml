@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+}
+<br><br>
+<div style="text-align:center;padding-bottom:30px;" class="window">
+
+    <form method="get" action="/Appartment/ResultSearch">
+        <div class="p1">Enter filters</div>
+
+        <div style="padding-left:5px;padding-top:20px">
+            <div class="p1">
+                Start price
+            </div>
+        </div>
+        <div style="padding-right:25px">
+            <input type="number" name="Price1" required>
+        </div>
+
+
+        <div style="padding-left:15px;padding-top:20px">
+            <div class="p1">
+                End price
+            </div>
+        </div>
+        <div style="padding-right:15px">
+            <input type="number" name="Price2" required>
+        </div>
+
+        <div style="padding-left:15px;padding-top:20px">
+            <div class="p1">
+                City
+            </div>
+        </div>
+        <div style="padding-right:15px">
+            <input type="text" name="City" required>
+        </div>
+
+        <div style="padding-left:15px;padding-top:20px">
+            <div class="p1">
+                Amount of rooms
+            </div>
+        </div>
+        <div style="padding-right:15px">
+            <input type="number" name="Rooms" required>
+        </div>
+
+        <div style="padding-left:20px;padding-top:15px;"><input value="Search" type="submit"></div>
+    </form>
+
+</div>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<RealtorFirm.PL.Models.ClientModel>
+@{
+    ViewBag.Title = "Submit";
+}
+<br><br>
+<div class="window">
+    <h2>My clients</h2>
+    <hr/>
+
+    <table style="padding-bottom:20px;">
+        @{
+            if (Model.Count() != 0)
+            {
+                <tr>
+                    <td><div class="p1">Name</div></td>
+                    <td><div class="p1">Surname</div></td>
+                    <td><div class="p1">Patronimic</div></td>
+                    <td><div class="p1">Date of birth</div></td>
+
+                    <td></td>
+                </tr>
+            }
+        }
+        @{
+            foreach (var n in Model)
+            {
+                <tr>
+                    <td><div class="p1">@n.Name</div></td>
+                    <td><div class="p1">@n.Surname</div></td>
+                    <td><div class="p1">@n.Patronimic</div></td>
+                    <td><div class="p1">@n.DateOfBirth.ToShortDateString()</div></td>
+                    <td>
+                        <form action="/Apply/Add" method="get">
+                            <input type="hidden" value="@n.ClientId" name="Cl">
+                            <input type="hidden" value="@ViewBag.AppId" name="App">
+                            <input value="Apply" type="submit" style="width:100%;">
+                        </form>
+                    </td>
+                    
+                </tr>
+            }
+        }
+
+    </table>
+    @{
+        if (Model.Count() == 0)
+        {
+            <div class="p1" style="padding-bottom:15px;">No clients</div>
+        }
+    }
+
+    <form action="/Appartment/Details" method="get" style="padding-bottom:20px;">
+        <input type="hidden" value="@ViewBag.AppId" name="Id">
+        <input value="Back" type="submit" style="width:20%">
+    </form>
+ 
+</div>

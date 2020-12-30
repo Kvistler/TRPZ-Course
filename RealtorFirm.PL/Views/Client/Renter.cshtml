@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Renter";
+}
+
+<div class="window">
+    <h2>Contact information</h2>
+
+    <table border="1" cellspacing="0" cellpadding="2" width="350" style="text-align:left">
+
+        <tr>
+            <td><div class="p1">Name:</div></td>
+            <td><div class="p1">@ViewBag.Client.Name</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Surname:</div></td>
+            <td><div class="p1">@ViewBag.Client.Surname</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Patronimic:</div></td>
+            <td><div class="p1">@ViewBag.Client.Patronimic</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Date of birth:</div></td>
+            <td><div class="p1">@ViewBag.Client.DateOfBirth.ToShortDateString()</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Phone number:</div></td>
+            <td><div class="p1">@ViewBag.Client.PhoneNumber</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Email:</div></td>
+            <td><div class="p1">@ViewBag.Client.Email</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Account:</div></td>
+            <td><div class="p1">@ViewBag.Client.Account</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Role:</div></td>
+            <td><div class="p1">@ViewBag.Client.Role</div></td>
+        </tr>
+
+    </table>
+   
+
+    <form action="/Apply/Notifications" method="get" style="padding-left:10px;padding-bottom:20px;">
+        <input value="Back" type="submit" style="width:20%">
+    </form>
+
+</div>

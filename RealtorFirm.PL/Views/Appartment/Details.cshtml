@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "Details";
+}
+<div class="window">
+    <h2>Appartment</h2>
+
+    <table border="1" cellspacing="0" cellpadding="2" width="350" style="text-align:left">
+        <tr>
+            <td><div class="p1">Address:</div></td>
+            <td><div class="p1">@ViewBag.Appartment.Address</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">City:</div></td>
+            <td><div class="p1">@ViewBag.Appartment.City</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Rooms:</div></td>
+            <td><div class="p1">@ViewBag.Appartment.Rooms</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Price:</div></td>
+            <td><div class="p1">@ViewBag.Appartment.Price</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Description:</div></td>
+            <td><div class="p1">@ViewBag.Appartment.Description</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Status:</div></td>
+            <td><div class="p1">@ViewBag.Appartment.Status</div></td>
+        </tr>
+        
+    </table>
+    <hr>
+    <h2>Contact information</h2>
+    <table border="1" cellspacing="0" cellpadding="2" width="350" style="text-align:left">
+        <tr>
+            <td><div class="p1">Name:</div></td>
+            <td><div class="p1">@ViewBag.Client.Name</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Surname:</div></td>
+            <td><div class="p1">@ViewBag.Client.Surname</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Patronimic:</div></td>
+            <td><div class="p1">@ViewBag.Client.Patronimic</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Date of birth:</div></td>
+            <td><div class="p1">@ViewBag.Client.DateOfBirth.ToShortDateString()</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Phone Number:</div></td>
+            <td><div class="p1">@ViewBag.Client.PhoneNumber</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Email:</div></td>
+            <td><div class="p1">@ViewBag.Client.Email</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Account:</div></td>
+            <td><div class="p1">@ViewBag.Client.Account</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Role:</div></td>
+            <td><div class="p1">@ViewBag.Client.Role</div></td>
+        </tr>
+
+    </table>
+    <hr>
+    <h2>Realtor</h2>
+    <table border="1" cellspacing="0" cellpadding="2" width="350" style="text-align:left">
+        <tr>
+            <td><div class="p1">Name:</div></td>
+            <td><div class="p1">@ViewBag.User.Name</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Surname:</div></td>
+            <td><div class="p1">@ViewBag.User.Surname</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Login:</div></td>
+            <td><div class="p1">@ViewBag.User.Login</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Phone Number:</div></td>
+            <td><div class="p1">@ViewBag.User.PhoneNumber</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Email:</div></td>
+            <td><div class="p1">@ViewBag.User.Email</div></td>
+        </tr>
+
+    </table>
+
+    <form action="/Apply/Submit" method="post" style="padding-bottom:20px;">
+        <input type="hidden" value="@ViewBag.AppId" name="App">
+        <input value="Apply" type="submit" style="width:20%">
+    </form>
+
+    <form action="/Appartment/All" method="post" style="padding-bottom:20px;">
+        <input value="Back" type="submit" style="width:20%">
+    </form>
+</div>

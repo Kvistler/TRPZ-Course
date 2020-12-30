@@ -1,0 +1,31 @@
+﻿@model RealtorFirm.PL.Models.UserModel
+@{
+    ViewBag.Title = "Enter";
+}
+<div class="window">
+
+    @using (Html.BeginForm("Enter", "User", FormMethod.Post))
+    {
+        <form method="post" class="login" style="text-align:center">
+
+            <div style="padding-top:20px">
+                <div class="p1">Login</div>
+            </div>
+            <div>
+                <input type="text" name="Login">
+            </div>
+            <div style="padding-top:20px">
+                <div class="p1">
+                    Password
+                </div>
+            </div>
+            <div>
+                <input type="password" name="Password">
+            </div>
+
+            <br>
+
+            <div><input value="Enter" type="submit"></div>
+        </form>
+    }
+</div>

@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>REALTOR FIRM</title>
+    <link rel="stylesheet" href="~/Stylesheets/main.css">
+</head>
+<body>
+    <div class="semiopacity">
+        <h1>REALTOR FIRM</h1>
+    </div>
+    <ul class="menu-main">
+        <li>@Html.ActionLink("Log in", "Enter", "User")</li>
+        <li>@Html.ActionLink("Registration", "Registration", "User")</li>
+        <li>@Html.ActionLink("Log out", "LogOut", "User")</li>
+        <li>@Html.ActionLink("User page", "Page", "User")</li>
+        <li>@Html.ActionLink("Clients", "All", "Client")</li>
+        <li>@Html.ActionLink("Appartments", "All", "Appartment")</li>
+        <li>@Html.ActionLink("Applies", "Show", "Apply")</li>
+        <li>@Html.ActionLink("Notifications", "Notifications", "Apply")</li>
+        <li>@Html.ActionLink("Search", "Search", "Client")</li>
+    </ul>
+    <br><br>
+    @RenderBody()
+</body>
+</html>

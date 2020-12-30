@@ -1,0 +1,106 @@
+﻿@model IEnumerable<RealtorFirm.PL.Models.AppartmentModel>
+@{
+    ViewBag.Title = "Contacts";
+}
+<div class="window">
+    <h2>Contact information</h2>
+
+    <table border="1" cellspacing="0" cellpadding="2" width="350" style="text-align:left">
+
+        <tr>
+            <td><div class="p1">Name:</div></td>
+            <td><div class="p1">@ViewBag.Client.Name</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Surname:</div></td>
+            <td><div class="p1">@ViewBag.Client.Surname</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Patronimic:</div></td>
+            <td><div class="p1">@ViewBag.Client.Patronimic</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Date of birth:</div></td>
+            <td><div class="p1">@ViewBag.Client.DateOfBirth.ToShortDateString()</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Phone number:</div></td>
+            <td><div class="p1">@ViewBag.Client.PhoneNumber</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Email:</div></td>
+            <td><div class="p1">@ViewBag.Client.Email</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Account:</div></td>
+            <td><div class="p1">@ViewBag.Client.Account</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Role:</div></td>
+            <td><div class="p1">@ViewBag.Client.Role</div></td>
+        </tr>
+
+    </table>
+  <hr>
+    <h2>Client appartments</h2>
+
+    <table border="1" cellspacing="0" cellpadding="2" width="350" style="text-align:left">
+        @{
+            if (Model.Count() != 0)
+            {
+                <tr>
+                    <td><div class="p1">Address</div></td>
+                    <td><div class="p1">City</div></td>
+                    <td><div class="p1">Rooms</div></td>
+                    <td><div class="p1">Price</div></td>
+                    <td><div class="p1">Description</div></td>
+                    <td></td>
+                </tr>
+            }
+        }
+        @{
+            foreach (var n in Model)
+            {
+                <tr>
+                    <td><div class="p1">@n.Address</div></td>
+                    <td><div class="p1">@n.City</div></td>
+                    <td><div class="p1">@n.Rooms</div></td>
+                    <td><div class="p1">@n.Price</div></td>
+                    <td><div class="p1">@n.Description</div></td>
+                   
+                    <td>
+                        <form action="/Appartment/Update" method="get">
+                            <input type="hidden" value="@n.AppartmentId" name="Id">
+                            <input type="hidden" value="@n.ClientId" name="clientId">
+                            <input value="Update" type="submit" style="width:100%;">
+                        </form>
+                    </td>
+                    <td>
+                        <form action="/Appartment/Deleted" method="post">
+                            <input type="hidden" value="@n.AppartmentId" name="Id2">
+                            <input type="hidden" value="@n.ClientId" name="Id">
+                            <input value="Delete" type="submit" style="width:100%">
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+
+    </table>
+    @{
+        if (Model.Count() == 0)
+        {
+            <div class="p1" style="text-align:center;padding-top:20px;padding-bottom:20px;">There are no appartments</div>
+        }
+    }
+
+    <form action="/Appartment/Add" method="get" style="text-align:center;">
+        <input type="hidden" value="@ViewBag.Client.ClientId" name="Id">
+        <input value="Add appartment" type="submit" style="width:20%">
+    </form>
+    
+    <form action="/User/Page" method="get" style="text-align:center;">
+        <input value="Back" type="submit" style="width:20%">
+    </form>
+  
+</div>

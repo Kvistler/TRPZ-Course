@@ -1,0 +1,103 @@
+﻿@model IEnumerable<RealtorFirm.PL.Models.ClientModel>
+@{
+    ViewBag.Title = "Page";
+}
+<div class="window">
+    <h2>User Page</h2>
+    <hr/>
+    @{
+
+    <table border="1" cellspacing="0" cellpadding="2" width="350" style="text-align:left">
+        <tr>
+            <td><div class="p1">Name:</div></td>
+            <td><div class="p1">@ViewBag.User.Name</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Surname:</div></td>
+            <td><div class="p1">@ViewBag.User.Surname</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Login:</div></td>
+            <td><div class="p1">@ViewBag.User.Login</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Phone number:</div></td>
+            <td><div class="p1">@ViewBag.User.PhoneNumber</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Email:</div></td>
+            <td><div class="p1">@ViewBag.User.Email</div></td>
+        </tr>
+        <tr>
+            <td><div class="p1">Account:</div></td>
+            <td><div class="p1">@ViewBag.User.Account</div></td>
+        </tr>
+      
+    </table>
+    <form action="/User/Update" method="get">
+        <input type="hidden" value="@ViewBag.User.UserId" name="Id">
+        <input value="Update" type="submit" style="width:20%;">
+    </form>
+    <form action="/User/Delete" method="post">
+        <input type="hidden" value="@ViewBag.User.UserId" name="Id">
+        <input value="DELETE ACCOUNT" type="submit" style="width:20%;">
+    </form>
+    <hr />
+    }
+
+    <h2>Clients</h2>
+   
+    <table border="1" cellspacing="0" cellpadding="2" width="400">
+        @{
+            if (Model.Count() != 0)
+            {
+                <tr>
+                    <td><div class="p1">Name</div></td>
+                    <td><div class="p1">Surname</div></td>
+                    <td><div class="p1">Patronimic</div></td>
+                    <td><div class="p1">Date of birth</div></td>
+                </tr>
+            }
+        }
+        @{
+            foreach (var n in Model)
+            {
+                <tr style="text-align:left">
+                    <td><div class="p1">@n.Name</div></td>
+                    <td><div class="p1">@n.Surname</div></td>
+                    <td><div class="p1">@n.Patronimic</div></td>
+                    <td><div class="p1">@n.DateOfBirth.ToShortDateString()</div></td>
+                    <td>
+                        <form action="/Client/Contacts" method="post">
+                            <input type="hidden" value="@n.ClientId" name="Id">
+                            <input value="Details" type="submit" style="width:100%;">
+                        </form>
+                    </td>
+                    <td><form action="/Client/Update" method="get">
+                        <input type="hidden" value="@n.ClientId" name="Id">
+                        <input value="Update" type="submit" style="width:100%;">
+                        </form></td>
+                    <td><form action="/Client/deleted" method="post">
+                        <input type="hidden" value="@n.ClientId" name="Id2">
+
+                        <input value="Delete" type="submit" style="width:100%;">
+                    </form></td>
+                </tr>
+            }
+        }
+    </table>
+        
+    @{
+        if (Model.Count() == 0)
+        {
+        <div class="p1" style="padding-bottom:20px; padding-top: 20px">There are no clients</div>
+        }
+    }
+
+    <form action="/Client/Add" method="get">
+        <input value="Add" type="submit" style="width:20%">
+    </form>
+    @*<form action="/Client/AddExistClient" method="get">
+        <input value="Existing client" type="submit" style="width:20%">
+    </form>*@
+</div>

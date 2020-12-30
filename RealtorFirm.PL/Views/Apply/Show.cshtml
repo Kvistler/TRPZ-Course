@@ -1,0 +1,104 @@
+﻿@model IEnumerable<RealtorFirm.PL.Models.ApplyModel>
+@{
+    ViewBag.Title = "Show";
+}
+<div class="window">
+    <h2>Applies</h2>
+    <form method="get" action="/Apply/Search">
+        <input value="Search" type="submit" style="width:20%;">
+    </form>
+    <hr>
+    <h2>Allowed</h2>
+    <table border="1" cellspacing="0" cellpadding="2" width="350" style="text-align:left">
+@if (Model.Count() != 0)
+{
+        <tr>
+            <td><div class="p1">Address</div></td>
+            <td><div class="p1">City</div></td>
+            <td><div class="p1">Rooms</div></td>
+            <td><div class="p1">Price</div></td>
+            <td><div class="p1">Status</div></td>
+            <td><div class="p1">Description</div></td>
+            <td></td>
+        </tr>
+}
+        @{
+            foreach (var n in Model)
+
+            {
+                if (n.ApplyStatus == "allowed")
+                {
+                <tr>
+                    <td>@n.Address</td>
+                    <td>@n.City</td>
+                    <td>@n.Rooms</td>
+                    <td>@n.Price</td>
+                    <td>@n.Status</td>
+                    <td>@n.Description</td>
+                    <td>
+                        <form method="get" action="/Client/Contacts">
+                            <input type="hidden" value="@n.OwnerId" name="id">
+                            <input value="Owner" type="submit" style="width:100%;">
+                        </form>
+                        <form method="get" action="/Client/Contacts">
+                            <input type="hidden" value="@n.SenderId" name="id">
+                            <input value="Sender" type="submit" style="width:100%;">
+                        </form>
+                    </td>
+                </tr>
+                    }
+                }
+            }
+    </table>
+            
+    <hr>
+        <h2>Not allowed</h2>
+        <table border="1" cellspacing="0" cellpadding="2" width="350" style="text-align:left">
+@if (Model.Count() != 0)
+{
+            <tr>
+                <td><div class="p1">Address</div></td>
+                <td><div class="p1">City</div></td>
+                <td><div class="p1">Rooms</div></td>
+                <td><div class="p1">Price</div></td>
+                <td><div class="p1">Status</div></td>
+                <td><div class="p1">Description</div></td>
+                <td></td>
+            </tr>
+}
+            @{
+                foreach (var n in Model)
+
+                {
+                    if (n.ApplyStatus == "not allowed")
+                    {
+                    <tr>
+                        <td>@n.Address</td>
+                        <td>@n.City</td>
+                        <td>@n.Rooms</td>
+                        <td>@n.Price</td>
+                        <td>@n.Status</td>
+                        <td>@n.Description</td>
+                        <td>
+                            <form method="get" action="/Client/Contacts">
+                                <input type="hidden" value="@n.SenderId" name="id">
+                                <input value="Sender" type="submit" style="width:100%;">
+                            </form>
+                            <form method="get" action="/Apply/Delete">
+                                <input type="hidden" value="@n.ApplyId" name="Id">
+                                <input value="Delete Apply" type="submit" style="width:100%;">
+                            </form>
+                        </td>
+                    </tr>
+                        }
+                    }
+                }
+        </table>
+                
+@if (Model.Count() == 0)
+{
+    <div class="p1" style="padding-bottom:40px;">No applies!</div>
+}
+</div>
+
+

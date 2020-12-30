@@ -1,0 +1,115 @@
+﻿@model IEnumerable<RealtorFirm.PL.Models.AppartmentModel>
+@{
+    ViewBag.Title = "All";
+}
+<div class="window">
+    <h2>Sort</h2>
+
+    <form action="/Appartment/All" method="get">
+        <input value="By price" type="submit" style="width:20%;">
+        <input type="hidden" value="price" name="Sort">
+    </form>
+   
+    @*<form action="/Appartment/All" method="get">
+        <input value="By type" type="submit" style="width:20%;">
+        <input type="hidden" value="type" name="Sort">
+    </form>*@
+
+    <form action="/Appartment/All" method="get">
+        <input value="No sort" type="submit" style="width:20%;">
+        <input type="hidden" value="without" name="Sort">
+    </form>
+    <hr><br>
+    <h2>Appartments</h2><br>
+    <form action="/Appartment/All" method="get">
+        <div class="p1">Keyword:</div>
+            <input name="Keyword" type="text" style="width:30%"><br><br>
+        <div>
+            <input value="Search" type="submit" style="width:20%">
+        </div>
+        <input type="hidden" value="keyword" name="Sort">
+    </form>
+    <hr>
+    <h2>Not rented</h2>
+    <table border="1" cellspacing="0" cellpadding="2" width="350" style="text-align:left">
+        @{
+            if (Model.Count() != 0)
+            {
+                <tr>
+                    <td><div class="p1">Address</div></td>
+                    <td><div class="p1">City</div></td>
+                    <td><div class="p1">Rooms</div></td>
+                    <td><div class="p1">Price</div></td>
+                    <td></td>
+                </tr>
+            }
+        }
+        @{
+            foreach (var n in Model)
+            {
+                if (n.Status == "not rented")
+                {
+                    <tr>
+                        <td><div class="p1">@n.Address</div></td>
+                        <td><div class="p1">@n.City</div></td>
+                        <td><div class="p1">@n.Rooms</div></td>
+                        <td><div class="p1">@n.Price</div></td>
+                        <td>
+                            <form action="/Appartment/Details" method="get">
+                                <input type="hidden" value="@n.AppartmentId" name="Id">
+                                <input value="Details" type="submit" style="width:100%;">
+                            </form>
+                        </td>
+
+                    </tr>
+                }
+            }
+        }
+
+    </table>
+    <hr>
+    <h2>Rented</h2>
+
+    <table border="1" cellspacing="0" cellpadding="2" width="350" style="text-align:left">
+        @{
+            if (Model.Count() != 0)
+            {
+                <tr>
+                    <td><div class="p1">Address</div></td>
+                    <td><div class="p1">City</div></td>
+                    <td><div class="p1">Rooms</div></td>
+                    <td><div class="p1">Price</div></td>
+                    <td></td>
+                </tr>
+            }
+        }
+        @{
+            foreach (var n in Model)
+            {
+                if (n.Status == "rented")
+                {
+                    <tr>
+                    <td><div class="p1">@n.Address</div></td>
+                    <td><div class="p1">@n.City</div></td>
+                    <td><div class="p1">@n.Rooms</div></td>
+                    <td><div class="p1">@n.Price</div></td>
+                    <td>
+                        <form action="/Appartment/Details" method="get">
+                            <input type="hidden" value="@n.AppartmentId" name="Id">
+                            <input value="Details" type="submit" style="width:100%;">
+                        </form>
+                    </td>
+                    </tr>
+                }
+            }
+        }
+
+    </table>
+
+    @{
+        if (Model.Count() == 0)
+        {
+            <div class="p1" style="padding-bottom:15px;">There are no appartments</div>
+        }
+    }
+</div>

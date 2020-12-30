@@ -1,0 +1,60 @@
+﻿@model RealtorFirm.PL.Models.UserModel
+
+@{
+    ViewBag.Title = "Add";
+}
+<br>
+<div class="window">
+    <form action="/Appartment/add" method="post">
+        <div style="padding-top:20px">
+            <div class="p1">
+                City
+            </div>
+        </div>
+        <div>
+            <input type="text" name="City" pattern="^[a-zA-Z]+$" title="Only letters">
+        </div>
+        <div style="padding-top:20px">
+            <div class="p1">
+                Address
+            </div>
+        </div>
+        <div>
+            <input type="text" name="Address">
+        </div>
+        <div style="padding-top:20px">
+            <div class="p1">
+                Rooms
+            </div>
+        </div>
+        <div>
+            <input type="number" name="Rooms">
+        </div>
+        <div style="padding-top:20px">
+            <div class="p1">
+                Price
+            </div>
+        </div>
+        <div>
+            <input type="number" name="Price">
+        </div>
+
+        <div style="padding-top:20px">
+            <div class="p1">
+                Description
+            </div>
+        </div>
+        <div>
+            <input type="text" name="Description">
+        </div>
+
+        <input type="hidden" value="@ViewBag.Id" name="ClientId">
+
+        <br>
+        <div style="padding-bottom:20px;"><input value="Add" type="submit"></div>
+    </form>
+
+    <form action="/User/Page" method="get" style="padding-bottom:20px;">
+        <input value="Back" type="submit" style="width:20%">
+    </form>
+</div>
